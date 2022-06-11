@@ -3,7 +3,7 @@ const expressFileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
-const fs = require("fs")
+const fs = require(fs)
 app.listen(3000, () => {
     console.log('El servidor está inicializado en el puerto 3000')
 })
@@ -20,8 +20,8 @@ app.use(expressFileUpload({
 app.use(express.static('assets'))
 
 // Integrar el paquete body parser usando el método “use” de la constante “app”.
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Ruta base de formulario
 app.get('/', (req, res) => {
