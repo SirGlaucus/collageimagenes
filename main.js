@@ -6,6 +6,7 @@ const app = express()
 const fs = require("fs")
 app.listen(3000)
 
+//Configuracion del FIleUpload
 app.use(expressFileUpload({
     limits: { fileSize: 5000000 },
     abortOnLimit: true,
@@ -13,17 +14,19 @@ app.use(expressFileUpload({
 })
 )
 
+// Para poderutilizar la carpeta de imagenes
 app.use(express.static('assets'))
 
 // Integrar el paquete body parser usando el método “use” de la constante “app”.
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Ruta base de formulario
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/formulario.html') // TODO: cambiar esto con path
 })
 
+// Ruta para subir imagenes
 app.post('/imagen', (req, res) => {
     const { posicion } = req.body
     const { target_file } = req.files
@@ -34,10 +37,12 @@ app.post('/imagen', (req, res) => {
     })
 })
 
+// Abre el HTML de collage donde se muestran las imagenes
 app.get('/collage', (req, res) => {
     res.sendFile(__dirname + '/collage.html') // TODO: cambiar esto con path
 })
 
+// Ruta para eliminar de imagen
 app.get('/deleteImg/:nombre', (req, res) => {
     const { nombre } = req.params
     const ruta = path.join(__dirname, 'assets', 'imgs', nombre) // Utiliza el path.join para facilitar las rutas
