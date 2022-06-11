@@ -8,7 +8,7 @@ En este desafío deberás crear un servidor con Express y el paquete express-fil
 - Entrar en la terminal y ubicarse en la carpeta del proyecto
 - Utilizar el comando `npm i`
 - Preferiblemente tener instalado nodemon
-- Con nodemon: `npm startN` para iniciar el proyecto. Sin nodemon: `npm start`.
+- Con nodemon: `npm run startmon` para iniciar el proyecto. Sin nodemon: `npm start`.
 - Entrar en el enlace [http://localhost:3000/](http://localhost:3000/)
 
 ### Habilidades a evaluar
